@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "authorId": "RpSf4mFLDtg6OF1uJ8SqWwhcByr2",
+    "authorEmail": "mixz1594@gmail.com",
+    "category": "ติวหนังสือ",
+    "subcategory": "คณิตศาสตร์",
+    "title": "ติวคณิต ม.ปลาย เรื่องแคลคูลัส",
+    "author": "ควายเวฟ Buffalo",
+    "price": 250,
+    "priceUnit": "บาท/ชม.",
+    "rating": 4.5,
+    "reviewCount": 18,
+    "description": "รับติวแคลคูลัสพื้นฐานสำหรับน้องๆ ม.ปลาย บรรยากาศกันเอง ถามได้ทุกเรื่อง เน้นเข้าใจ ไม่เน้นท่องจำ",
+    "coverImage": "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=400"
+  },
+  {
+    "id": 2,
+    "authorId": "95WtjKDyxifEdb2O5kQjCzJA5AK2",
+    "authorEmail": "suskuy17@gmail.com",
+    "category": "ออกแบบ",
+    "subcategory": "กราฟิกดีไซน์",
+    "title": "รับออกแบบปกรายงาน/สไลด์นำเสนอ",
+    "author": "น้องปองลิลลี่",
+    "price": 300,
+    "priceUnit": "เริ่มต้น (บาท)",
+    "rating": 5.0,
+    "reviewCount": 25,
+    "description": "ทำให้งานนำเสนอของเธอดูโปรขึ้น! รับทำสไลด์ Powerpoint/Canva และปกรายงานสวยๆ",
+    "coverImage": "https://images.unsplash.com/photo-1558655146-d09347e92766?w=400"
+  }
+]
