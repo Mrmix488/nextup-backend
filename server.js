@@ -1,11 +1,11 @@
-// backend/server.js (เวอร์ชันอ่านจาก Environment Variables)
+// backend/server.js (เวอร์ชันแก้ไข Port)
 
 import express from 'express';
 import cors from 'cors';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore';
 
-// --- อ่าน "เชื้อเพลิง" จากท่อส่ง (Environment Variables) ---
+// --- อ่าน Config จาก Environment Variables ---
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -17,17 +17,21 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
-
 const app = express();
-const port = 5000;
+
+// --- นี่คือหัวใจของการแก้ไข! ---
+// ให้ใช้ Port ที่ Render กำหนดมาให้ (ผ่าน process.env.PORT)
+// แต่ถ้าเป็นการรันในเครื่องเรา (ที่ไม่มี process.env.PORT) ให้ใช้ 5000 แทน
+const port = process.env.PORT || 5000;
+
 app.use(cors());
 
-// ... API Endpoints ทั้งหมดเหมือนเดิมเป๊ะๆ ...
+// --- API Endpoints ทั้งหมดเหมือนเดิม ---
 app.get('/api/categories', async (req, res) => { /*...*/ });
 app.get('/api/services', async (req, res) => { /*...*/ });
 app.get('/api/services/:id', async (req, res) => { /*...*/ });
 
-
 app.listen(port, () => {
-  console.log(`Backend server is running on http://localhost:${port}`);
+  // แสดง Port ที่ใช้งานจริงออกมาใน Log
+  console.log(`Backend server is running on port ${port}`);
 });
