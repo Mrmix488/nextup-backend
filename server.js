@@ -1,34 +1,34 @@
-// backend/server.js (เวอร์ชันทดสอบ - ไม่ต้องคุยกับ Firebase)
+ import express from 'express';
+    import cors from 'cors';
+    import { initializeApp } from 'firebase/app';
+    import { getFirestore, collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore';
 
-import express from 'express';
-import cors from 'cors';
+    const firebaseConfig = {
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      projectId: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderId: process.env.MESSAGING_SENDER_ID,
+      appId: process.env.APP_ID
+    };
+    
+    // เพิ่มการตรวจสอบว่า Config มาครบไหม
+    if (!firebaseConfig.apiKey) {
+      console.error("Firebase API Key is missing!");
+      process.exit(1); // หยุดการทำงานของเซิร์ฟเวอร์ไปเลยถ้าไม่มี Key
+    }
 
-const app = express();
-const port = process.env.PORT || 5000;
+    const firebaseApp = initializeApp(firebaseConfig);
+    const db = getFirestore(firebaseApp);
+    const app = express();
+    const port = process.env.PORT || 5000;
+    app.use(cors());
 
-app.use(cors());
-
-// --- Endpoint ทดสอบที่ 1 ---
-// แค่เข้าไปดูว่าเซิร์ฟเวอร์ "ตื่น" หรือยัง
-app.get('/', (req, res) => {
-  res.send('Hello from NextUp Backend! The server is running!');
-});
-
-
-// --- Endpoint ทดสอบที่ 2 ---
-// จำลองการส่งข้อมูล Categories กลับไป โดยไม่ต้องไปถาม Firebase
-app.get('/api/categories', (req, res) => {
-  console.log("Request received for /api/categories");
-  const mockCategories = ["ติวหนังสือ (Test)", "ออกแบบ (Test)", "ศิลปะ (Test)"];
-  res.json(mockCategories);
-});
-
-// (เราจะคอมเมนต์ Endpoint อื่นๆ ทิ้งไปก่อนชั่วคราว)
-/*
-app.get('/api/services', async (req, res) => { ... });
-app.get('/api/services/:id', async (req, res) => { ... });
-*/
-
-app.listen(port, () => {
-  console.log(`Test server is running on port ${port}`);
-});
+    // ... API Endpoints ทั้งหมด ...
+    app.get('/api/categories', async (req, res) => { /*...*/ });
+    app.get('/api/services', async (req, res) => { /*...*/ });
+    app.get('/api/services/:id', async (req, res) => { /*...*/ });
+    
+    app.listen(port, () => {
+      console.log(`Backend server is running on port ${port}`);
+    });
