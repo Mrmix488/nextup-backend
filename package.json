@@ -8,7 +8,11 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "keywords": ["backend", "express", "firebase"],
+  "keywords": [
+    "backend",
+    "express",
+    "firebase"
+  ],
   "author": "Your Name",
   "license": "ISC",
   "repository": {
@@ -21,6 +25,7 @@
   "homepage": "https://github.com/Mrmix488/nextup-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "firebase": "^12.0.0"
   },
